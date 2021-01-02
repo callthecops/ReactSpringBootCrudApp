@@ -1,19 +1,30 @@
-.App {
+
+.page-container {
   text-align: center;
 }
 
-.App-logo {
+.page-container{
+  display:flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content-wrap{
+  flex: 1;
+}
+
+.page-container-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
+  .page-container-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
 
-.App-header {
+.oage-container-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -24,7 +35,7 @@
   color: white;
 }
 
-.App-link {
+.page-container-link {
   color: #61dafb;
 }
 
