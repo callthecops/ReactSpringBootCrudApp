@@ -4,3 +4,19 @@
    background-position:center;
    border-radius:10px;
 }
+
+.links {
+   color:white;
+   padding-top:3.1px;
+   background-color:rgb(0,123,255);
+   text-decoration:none;
+}
+
+.links:hover{
+   text-decoration:none;
+}
+
+#myHome{
+   margin-right:30px;
+   margin-left:10px
+}
