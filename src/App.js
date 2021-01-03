@@ -5,8 +5,12 @@ import CarList from './components/CarList';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as ReactBootstrap from "react-bootstrap";
 import Footer from './components/Footer';
+// import CarImage from './images/whitecar.jpg'
+import FormCss from './components/FormCss.css'
 
 //To implement bootstrap in our porject we first have to install it with "npm install react-bootstrap bootstrap" and then we need to import the line import 'bootstrap/dist/css/bootstrap.min.css'; in App.js. We can also add the cdn to index.html.(from here https://react-bootstrap.netlify.app/getting-started/introduction)in order to use Bootstrap components we have to import BootstrapReact as a Component(ReactBootstrap).
+
+//The easyes way to add style to elements in react is to create add a className to the repsective element, then create a .css file , add the necessary css there and then import the css in the component we are using that class.(import FormCss from './components/FormCss.css)
 
 function App() {
   return (
@@ -50,31 +54,36 @@ function App() {
 
               </ReactBootstrap.Col>
               <ReactBootstrap.Col>
-                {/* FORM */}
-                <ReactBootstrap.Form>
+                {/* FORM - inline style style={{ background: `url(${CarImage}) no-repeat` }}*/}
+                <ReactBootstrap.Form className="myForm">
+
                   <ReactBootstrap.Form.Group controlId="formGroupMark">
-                    <ReactBootstrap.Form.Label>Car Mark</ReactBootstrap.Form.Label>
+                    <ReactBootstrap.Form.Label></ReactBootstrap.Form.Label>
                     <ReactBootstrap.Form.Control type="text" placeholder="Enter Mark" />
                   </ReactBootstrap.Form.Group>
                   <ReactBootstrap.Form.Group controlId="formGroupModel">
-                    <ReactBootstrap.Form.Label>Model</ReactBootstrap.Form.Label>
-                    <ReactBootstrap.Form.Control type="text" placeholder="Model" />
+                    <ReactBootstrap.Form.Label></ReactBootstrap.Form.Label>
+                    <ReactBootstrap.Form.Control type="text" placeholder="Car Model" />
                   </ReactBootstrap.Form.Group>
                   <ReactBootstrap.Form.Group controlId="formGroupYear">
-                    <ReactBootstrap.Form.Label>Year</ReactBootstrap.Form.Label>
-                    <ReactBootstrap.Form.Control type="text" placeholder="Year" />
+                    <ReactBootstrap.Form.Label></ReactBootstrap.Form.Label>
+                    <ReactBootstrap.Form.Control type="text" placeholder="Year Fabricated" />
                   </ReactBootstrap.Form.Group>
                   <ReactBootstrap.Form.Group controlId="formGroupFuel">
-                    <ReactBootstrap.Form.Label>Fuel</ReactBootstrap.Form.Label>
-                    <ReactBootstrap.Form.Control type="text" placeholder="Fuel" />
+                    <ReactBootstrap.Form.Label></ReactBootstrap.Form.Label>
+                    <ReactBootstrap.Form.Control type="text" placeholder="Fuel Type" />
                   </ReactBootstrap.Form.Group>
                   <ReactBootstrap.Form.Group controlId="formGroupPrice">
-                    <ReactBootstrap.Form.Label>Price</ReactBootstrap.Form.Label>
+                    <ReactBootstrap.Form.Label></ReactBootstrap.Form.Label>
                     <ReactBootstrap.Form.Control type="text" placeholder="Price" />
                   </ReactBootstrap.Form.Group>
                   <ReactBootstrap.Form.Group>
-                    <ReactBootstrap.Form.File id="exampleFormControlFile1" label="Add A Photo" />
+                    <ReactBootstrap.Form.File id="exampleFormControlFile1" label="" />
                   </ReactBootstrap.Form.Group>
+                  <input type="SUBMIT" value="Submit" />
+                  <br />
+                  <br />
+                  <br />
                 </ReactBootstrap.Form>
               </ReactBootstrap.Col>
             </ReactBootstrap.Row>
@@ -83,7 +92,7 @@ function App() {
         </Router >
       </div>
       <Footer />
-    </div>
+    </div >
 
   );
 }
