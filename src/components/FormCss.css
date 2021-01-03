@@ -1,0 +1,6 @@
+.myForm {
+   background: url("../images/whitecar.jpg");
+   background-repeat:no-repeat;
+   background-position:center;
+   border-radius:10px;
+}
