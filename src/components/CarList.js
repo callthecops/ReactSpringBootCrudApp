@@ -4,10 +4,10 @@ class CarList extends Component {
     render() {
         return (
             <div>
-                CarList
+                <h3>CarList</h3>
+                <p>These are the cars we have in stock</p>
             </div>
         )
     }
 }
-
 export default CarList
