@@ -6,6 +6,7 @@ import * as ReactBootstrap from "react-bootstrap";
 import Footer from './Footer';
 import FormCss from './FormCss.css'
 import axios from 'axios';
+import CardCss from './CardCss.css'
 
 class CarList extends Component {
 
@@ -80,12 +81,36 @@ class CarList extends Component {
                             </ReactBootstrap.Col>
                             <ReactBootstrap.Col>
                                 {/* CARS DISPLAY START }}*/}
-                                {
-                                    cars.length ?
-                                        cars.map(cars => <div key={cars.id}>{cars.price}</div>) :
-                                        null
+                                <div className="cardParent">
+                                    {
+                                        cars.length ?
+                                            cars.map(cars =>
+                                                <div key={cars.id} >
+                                                    {
+                                                        <div>
+                                                            <ReactBootstrap.Card style={{ width: '18rem' }}>
+                                                                <ReactBootstrap.Card.Img variant="top" src="holder.js/100px180" />
+                                                                <ReactBootstrap.Card.Body>
+                                                                    <ReactBootstrap.Card.Title>Card Title</ReactBootstrap.Card.Title>
+                                                                    <ReactBootstrap.Card.Text>
+                                                                        Some quick example text to build on the card title and make up the bulk of
+                                                                        the card's content.
+                                                        </ReactBootstrap.Card.Text>
+                                                                    <ReactBootstrap.Button variant="primary">Go somewhere</ReactBootstrap.Button>
+                                                                </ReactBootstrap.Card.Body>
+                                                            </ReactBootstrap.Card>
 
-                                }
+                                                        </div>
+                                                    }
+                                                    <br />
+                                                </div>
+
+                                                // <div key={cars.id}>{cars.price}</div>
+                                            ) :
+                                            null
+
+                                    }
+                                </div>
                                 {
                                     error ? <div>{error}</div> : null
                                 }
