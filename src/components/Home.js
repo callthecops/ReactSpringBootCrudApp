@@ -107,7 +107,6 @@ class Home extends Component {
             })
     };
 
-
     render() {
         return (
             <div className="page-container">
@@ -178,7 +177,7 @@ class Home extends Component {
                                     <ReactBootstrap.Form.Group>
                                         <ReactBootstrap.Form.File id="image" label="" accept="image/png,image/jpeg" onChange={this.handleImageChange} required />
                                     </ReactBootstrap.Form.Group>
-                                    <input type="SUBMIT" value="Submit" />
+                                    <ReactBootstrap.Button variant="primary" type="submit">Submit</ReactBootstrap.Button>
                                     <br />
                                     <br />
                                     <br />

@@ -15,7 +15,9 @@ class CarList extends Component {
 
         this.state = {
             cars: [],
-            error: ""
+            error: "",
+            deleteError: "",
+            updateError: ""
         }
     }
 
@@ -23,6 +25,7 @@ class CarList extends Component {
         axios.get("http://localhost:8080/cars/getCars")
             .then(response => {
                 console.log(response.status);
+                console.log(response.data);
                 this.setState(
                     { cars: response.data });
             })
@@ -34,7 +37,32 @@ class CarList extends Component {
             })
     }
 
+    displayErrorMessage() {
+        alert("Something went wrong, please try again");
+    }
+    displaySuccessMessage() {
+        alert("Action successfull");
+    }
 
+
+    handleClickDelete = (carId) => {
+
+        axios.post('http://localhost:8080/cars/deleteCar/' + carId, {
+            mode: 'cors',
+            credentials: 'include'
+        }).then(res => {
+            if (res.status === 200) {
+                this.displaySuccessMessage();
+            }
+        }).catch(err => {
+            console.log(err);
+            this.displayErrorMessage();
+        })
+    }
+
+    handleClickUpdate = (carId) => {
+        axios.post
+    }
 
     render() {
         const { cars, error } = this.state;
@@ -86,17 +114,19 @@ class CarList extends Component {
                                         cars.length ?
                                             cars.map(cars =>
                                                 <div key={cars.id} >
+
                                                     {
                                                         <div>
                                                             <ReactBootstrap.Card style={{ width: '18rem' }}>
-                                                                <ReactBootstrap.Card.Img variant="top" src="holder.js/100px180" />
+                                                                <ReactBootstrap.Card.Img variant="top" src={`data:image/jpg;base64,${cars.image}`} />
+
                                                                 <ReactBootstrap.Card.Body>
-                                                                    <ReactBootstrap.Card.Title>Card Title</ReactBootstrap.Card.Title>
-                                                                    <ReactBootstrap.Card.Text>
-                                                                        Some quick example text to build on the card title and make up the bulk of
-                                                                        the card's content.
-                                                        </ReactBootstrap.Card.Text>
-                                                                    <ReactBootstrap.Button variant="primary">Go somewhere</ReactBootstrap.Button>
+                                                                    <ReactBootstrap.Card.Title>{cars.mark}-{cars.model}</ReactBootstrap.Card.Title>
+                                                                    <ReactBootstrap.Card.Header>Price: {cars.price}</ReactBootstrap.Card.Header>
+                                                                    <h6>Fabricated: {cars.year}</h6>
+                                                                    <h6>{cars.fuel}</h6>
+                                                                    <ReactBootstrap.Button variant="success" className="cardButtons" id="cardButtonGreen" onClick={() => this.handleClickUpdate(cars.id)}> Update</ReactBootstrap.Button>
+                                                                    <ReactBootstrap.Button variant="danger" className="cardButtons" id="cardButtonRed" onClick={() => this.handleClickDelete(cars.id)}> Delete</ReactBootstrap.Button>
                                                                 </ReactBootstrap.Card.Body>
                                                             </ReactBootstrap.Card>
 
@@ -114,17 +144,7 @@ class CarList extends Component {
                                 {
                                     error ? <div>{error}</div> : null
                                 }
-                                <ReactBootstrap.Card style={{ width: '18rem' }}>
-                                    <ReactBootstrap.Card.Img variant="top" src="holder.js/100px180" />
-                                    <ReactBootstrap.Card.Body>
-                                        <ReactBootstrap.Card.Title>Card Title</ReactBootstrap.Card.Title>
-                                        <ReactBootstrap.Card.Text>
-                                            Some quick example text to build on the card title and make up the bulk of
-                                            the card's content.
-    </ReactBootstrap.Card.Text>
-                                        <ReactBootstrap.Button variant="primary">Go somewhere</ReactBootstrap.Button>
-                                    </ReactBootstrap.Card.Body>
-                                </ReactBootstrap.Card>
+
 
                                 {/* CARS DISPLAY END }}*/}
 
