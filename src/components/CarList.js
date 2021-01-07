@@ -17,7 +17,8 @@ class CarList extends Component {
             cars: [],
             error: "",
             deleteError: "",
-            updateError: ""
+            updateError: "",
+            updateCarId: null
         }
     }
 
@@ -61,7 +62,9 @@ class CarList extends Component {
     }
 
     handleClickUpdate = (carId) => {
-        axios.post
+        console.log(carId);
+        // axios.get("http://localhost:8080/cars/getCar/" + carId)
+        //     .then(response)
     }
 
     render() {
@@ -118,11 +121,12 @@ class CarList extends Component {
                                                     {
                                                         <div>
                                                             <ReactBootstrap.Card style={{ width: '18rem' }}>
-                                                                <ReactBootstrap.Card.Img variant="top" src={`data:image/jpg;base64,${cars.image}`} />
+                                                                <ReactBootstrap.Card.Img variant="top" style={{ height: "180px" }} src={`data:image/jpg;base64,${cars.image}`} />
 
                                                                 <ReactBootstrap.Card.Body>
                                                                     <ReactBootstrap.Card.Title>{cars.mark}-{cars.model}</ReactBootstrap.Card.Title>
                                                                     <ReactBootstrap.Card.Header>Price: {cars.price}</ReactBootstrap.Card.Header>
+                                                                    <br />
                                                                     <h6>Fabricated: {cars.year}</h6>
                                                                     <h6>{cars.fuel}</h6>
                                                                     <ReactBootstrap.Button variant="success" className="cardButtons" id="cardButtonGreen" onClick={() => this.handleClickUpdate(cars.id)}> Update</ReactBootstrap.Button>
