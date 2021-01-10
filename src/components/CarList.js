@@ -118,6 +118,15 @@ class CarList extends Component {
 
                     <input type="text" value={this.state.updateObject.model} name="model" onChange={(event) => this.updateChanges(event)} /><br />
 
+                    <input type="text" value={this.state.updateObject.year} name="year" onChange={
+                        (event) => this.updateChanges(event)} /><br />
+                    <input type="text" value={this.state.updateObject.fuel} name="fuel" onChange={
+                        (event) => this.updateChanges(event)} /><br />
+                    <input type="text" value={this.state.updateObject.price} name="price" onChange={
+                        (event) => this.updateChanges(event)} /><br />
+                    <input type="file" value={this.state.updateObject.image} name="image" onChange={
+                        (event) => this.updateChanges(event)} /><br />
+
                     <button type="button" onClick={this.makeUpdate}>Update Car</button>
 
                     <button onClick={() => this.setState({ ...this.state, edit: false })}>Go Back</button></div> : <div className="page-container">
