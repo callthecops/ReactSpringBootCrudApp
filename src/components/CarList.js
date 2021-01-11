@@ -8,6 +8,7 @@ import FormCss from './FormCss.css'
 import axios from 'axios';
 import CardCss from './CardCss.css'
 import MyComp from './MyComp'
+import InternalLink from './InternalLink'
 
 class CarList extends Component {
 
@@ -129,7 +130,9 @@ class CarList extends Component {
 
                     <button type="button" onClick={this.makeUpdate}>Update Car</button>
 
-                    <button onClick={() => this.setState({ ...this.state, edit: false })}>Go Back</button></div> : <div className="page-container">
+                    <button onClick={() => this.setState({ ...this.state, edit: false })}>Go Back</button></div> :
+
+                    <div className="page-container">
                         <div className="content-wrap">
                             <ReactBootstrap.Container fluid >
                                 {/* ROW 1 */}
@@ -206,7 +209,9 @@ class CarList extends Component {
                                         }
 
                                         {this.state.buttonWasPressed && <MyComp carId={this.state.updateCarId} />}
-
+                                        <InternalLink href="/helloWorld" carId="3">
+                                            <ReactBootstrap.Button variant="success" className="cardButtons" id="cardButtonGreen" onClick={() => this.handleClickUpdate(cars.id)}> Update</ReactBootstrap.Button>
+                                        </InternalLink>
                                         {/* CARS DISPLAY END }}*/}
 
                                         <br />
@@ -218,9 +223,6 @@ class CarList extends Component {
                         </div>
                         <Footer />
                     </div >}
-
-
-
             </>
 
         )
